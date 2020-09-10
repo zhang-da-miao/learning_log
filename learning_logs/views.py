@@ -29,7 +29,7 @@ def new_topic(request):
     """添加新主题"""
     if request.method != 'POST':
         # 未提交数据，创建一个新表单
-        form = TopicForm
+        form = TopicForm()
     else:
         # POST提交的数据，对数据进行处理
         form = TopicForm(request.POST)
