@@ -1,13 +1,13 @@
-{% extends "learning_logs/base.html"%}
+{% extends "base.html"%}
 {% block content %}
-{%if forms errors%}
+{% if form.errors %}
 <P>
     username error.
 </P>
 {%endif%}
-<form action="{% url 'users:LoginView' %}" method="post">
+<form action="{% url 'users:login' %}" method="post">
     {% csrf_token %}
-    {{ forms.as_p}}
+    {{ forms.as_p }}
 <button name="submit">log in</button>
 <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />
 </form>
