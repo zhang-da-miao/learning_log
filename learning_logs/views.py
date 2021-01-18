@@ -39,7 +39,7 @@ def new_topic(request):
     else:
         # POST提交的数据，对数据进行处理
         form = TopicForm(request.POST)
-        if form.is_vaild():
+        if form.is_valid():
             new_topic = form.save(commit=False)
             new_topic.owner = request.user
             new_topic.save()
@@ -58,7 +58,7 @@ def new_entry(request, topic_id):
     else:
         # POST提交的数据，对数据进行处理
         form = EntryForm(data=request.POST)
-        if form.is_vaild():
+        if form.is_valid():
             new_entry = form.save(commit=False)
             new_entry.topic = topic
             new_entry.save()
@@ -79,7 +79,7 @@ def edit_entry(request, entry_id):
     else:
         # POST提交的数据，对数据进行处理
         form = EntryForm(instance=entry, data=request.POST)
-        if form.is_vaild():
+        if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('learning_logs:topic', args=[topic.id]))
     context = {'form': form, 'topic': topic, 'entry': entry}

@@ -1,2 +1,4 @@
 # Project exclude paths
 /venvfor_django/
+/learning_logs/migrations/*
+/users/migrations/*
