@@ -1,14 +1,23 @@
 {% extends "base.html"%}
 {% block content %}
-    {% if form.errors %}
-    <P>
-        username or password error.
-    </P>
-    {%endif%}
-    <form action="{% url 'users:login' %}" method="post">
-        {% csrf_token %}
-        {{ forms.as_p }}
-    <button name="submit">log in</button>
-    <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />
-    </form>
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{%endif%}
+
+<form action="{% url 'users:login' %}" method="post">
+    {% csrf_token %}
+    <table>
+    <tr>
+        <td>{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.password.label_tag }}</td>
+        <td>{{ form.password }}</td>
+    </tr>
+    </table>
+<!--        {{ forms.as_p }}-->
+<button name="submit">log in</button>
+<input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />
+</form>
 {% endblock content %}

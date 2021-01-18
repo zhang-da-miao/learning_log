@@ -10,7 +10,8 @@
         <a href="{% url 'learning_logs:topics' %}">Topics</a>
     {% if user.is_authenticated%}
         <p>hello, {{user.username}}.</p>
-        <a href="{% url 'users:logout' %}">log out</a>
+        <a href="{% url 'users:logout' %}">logout</a>
+        Hello {{ user.username}}!
     {% else %}
         <a href="{% url 'users:register' %}">register</a>
         <a href="{% url 'users:login' %}">log in</a>
