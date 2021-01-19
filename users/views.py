@@ -14,7 +14,7 @@ class Login(LoginView):
 
 class Logout(LogoutView):
     # LogoutView.template_name = 'users/logout.html'
-    next_page = '/users/login'
+    next_page = '/'
 
 # def logout_view(request):
 #     """注销用户"""
@@ -31,7 +31,7 @@ def register(request):
         if form.is_valid():
             new_user = form.save()
             authenticate_user = authenticate(username=new_user.username, password=request.POST['password1'])
-            LoginView(request, authenticate_user)
+            login(request, authenticate_user)
             return HttpResponseRedirect(reverse('learning_logs:index'))
     context = {'form': form}
-    return render(request, 'register.html', context)
+    return render(request, 'users/register.html', context)
