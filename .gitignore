@@ -2,3 +2,4 @@
 /venvfor_django/
 /learning_logs/migrations/*
 /users/migrations/*
+.idea

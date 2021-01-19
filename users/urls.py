@@ -1,7 +1,6 @@
 """定义users的URL模式"""
 from django.urls import path, re_path
 from . import views
-from django.contrib.auth.views import LoginView, LogoutView
 
 app_name = 'users'
 
